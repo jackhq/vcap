@@ -879,7 +879,7 @@ module DEA
           timer.cancel
         elsif instance[:debug_mode] != "suspend"
           attempts += 1
-          if attempts > 600 || instance[:state] != :STARTING # 5 minutes or instance was stopped
+          if attempts > 1200 || instance[:state] != :STARTING # 5 minutes or instance was stopped
             block.call(false)
             timer.cancel
           end
