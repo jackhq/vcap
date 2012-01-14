@@ -25,6 +25,7 @@ class NodePlugin < StagingPlugin
     vars = environment_hash
     generate_startup_script(vars) do
       cmd = <<NPM
+export PATH=$PATH:/usr/local/bin
 cd app
 /usr/local/bin/npm rebuild >> ../logs/npm.log 2>> ../logs/npm.log
 cd ..
