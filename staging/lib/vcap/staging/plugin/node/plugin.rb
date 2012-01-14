@@ -24,7 +24,7 @@ class NodePlugin < StagingPlugin
   def startup_script
     vars = environment_hash
     generate_startup_script(vars) do
-      cmds = ['cd app && npm rebuild >>../logs/npm.log 2>> ../logs/npm.log && cd ..;']
+      cmds = ['cd app', '/usr/local/bin/npm rebuild >>../logs/npm.log 2>> ../logs/npm.log', 'cd ..']
       cmds.join('\n')
     end
   end
