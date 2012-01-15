@@ -1,0 +1,7 @@
+---
+deployment: 
+  name: beautifulnode
+jobs:
+  install:
+    - nats_server
+  
