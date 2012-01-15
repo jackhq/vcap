@@ -21,6 +21,7 @@ class NodePlugin < StagingPlugin
 
   private
 
+  # requires node and npm to be installed int the /usr/local/bin dir
   def startup_script
     vars = environment_hash
     generate_startup_script(vars) do

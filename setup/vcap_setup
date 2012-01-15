@@ -248,7 +248,8 @@ if [[ $DEA == true || $ALL == true ]]; then
     cd /tmp
 
     NODE_VERSION=0.6.7
-
+    NPM_VERSION=1.1.0-beta-10
+    
     if [[ ! `node -v` == 'v'$NODE_VERSION ]]; then
         wget http://nodejs.org/dist/node-v$NODE_VERSION.tar.gz
         tar -zxf node-v$NODE_VERSION.tar.gz
@@ -256,11 +257,14 @@ if [[ $DEA == true || $ALL == true ]]; then
         ./configure
         make
         make install
-        curl http://npmjs.org/install.sh | sh
         cd ..
         rm node-v$NODE_VERSION.tar.gz
         rm -fr node-v$NODE_VERSION
+        if [[ ! `npm -v` == $NPM_VERSION ]]; then
+          curl http://npmjs.org/install.sh | sh
+        fi
     fi
+
 
     # For PHP
     if [[ $PLATFORM == 'Linux' ]]; then
