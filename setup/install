@@ -103,15 +103,6 @@ cd ~/cloudfoundry/vcap
 
 sudo setup/vcap_setup -a -s -p "$MYSQL_PASS" -q "$POSTGRESQL_PASS"
 
-echo "Install NPM"
-NODE_VERSION=0.6.7
-if [[ `node -v` == 'v'$NODE_VERSION ]]; then
-  NPM_VERSION=1.1.0-beta-10
-  if [[ ! `npm -v` == $NPM_VERSION ]]; then
-    curl http://npmjs.org/install.sh | sh
-  fi
-fi
-
 cd ~/cloudfoundry/vcap/services/mysql/config
 sed -i.bkup -e "s/pass: root/pass: $MYSQL_PASS/" mysql_node.yml
 
