@@ -1,0 +1,16 @@
+---
+# Deployment
+# ----------
+deployment:
+  name: "router"
+  domain: "beautifulnode.com"
+
+jobs:
+  install:
+    - router
+  installed:
+    - nats_server:
+        host: "10.194.187.108"
+        port: "4222"
+        user: "nats"
+        password: "nats"

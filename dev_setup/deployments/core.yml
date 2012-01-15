@@ -1,0 +1,21 @@
+---
+deployment: 
+  name: beautifulnode
+jobs:
+  install:
+    - cloud_controller:
+        builtin_services:
+          - redis
+          - mongodb
+          - mysql
+    - health_manager
+    - redis_node:
+        index: "0"
+    - redis_gateway
+    - ccdb
+  installed:
+    - nats_server:
+        host: "10.194.187.108"
+        port: "4222"
+        user: "nats"
+        password: "nats"
