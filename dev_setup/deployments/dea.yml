@@ -1,0 +1,17 @@
+---
+# This sample file shows a custom DEA runtime that does not include Erlang.
+deployment:
+  name: "dea"
+dea:
+  runtimes:
+    - nodejs
+jobs:
+  install:
+    - dea
+  installed:
+    - nats_server:
+        host: "10.194.187.108"
+        port: "4222"
+        user: "nats"
+        password: "nats"
+    

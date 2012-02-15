@@ -1,21 +1,21 @@
 ---
 # Cloud Controller URI
-external_uri: api.vcap.me
-description: "VMware's Cloud Application Platform"
-support_address: http://support.cloudfoundry.com
+external_uri: api.beautifulnode.com
+description: "Beautiful Node Platform"
+support_address: http://support.beautifulnode.com
 
 # local_route is the IP address of a well known server on your network, it
 # is used to choose the right ip address (think of hosts that have multiple nics
 # and IP addresses assigned to them) of the host running the cloud controller. Default
 # value of nil, should work in most cases.
-local_route: 127.0.0.1
+local_route: 0.0.0.0
 
 # Specifies if new users are allowed to register via VMC
 allow_registration: true
 
 # Allow applications to register URIs that are outside your domain.
 # Legacy (FIXME REMOVE)
-allow_external_app_uris: false
+allow_external_app_uris: true
 
 # This dicatates what the uri namespace rules
 # are for apps. Admins can overide any of the
@@ -23,7 +23,7 @@ allow_external_app_uris: false
 
 app_uris:
   # Allow applications to register URIs that are outside your domain.
-  allow_external: false
+  allow_external: true
 #  reserved_file:
 #  reserved_list: [www, test, dash, register, foo, bar]
 #  reserved_length: 3
@@ -112,10 +112,10 @@ https_required_for_admins: false
 # Controls the amount of resources assigned to a user
 # Normal user accounts
 default_account_capacity:
-  memory:   2048
-  app_uris: 4
+  memory:   4096
+  app_uris: 20
   services: 16
-  apps:     20
+  apps:     40
 
 # Services we provide, and their tokens. Avoids bootstrapping DB.
 builtin_services:
@@ -144,23 +144,8 @@ allow_debug: true
 # Supported runtime versions and debug modes.
 # Used for /info/runtimes endpoint (served unfiltered as JSON)
 runtimes:
-  ruby18:
-    version: 1.8.7
-  ruby19:
-    version: 1.9.2
   node:
-    version: 0.4.12
-  java:
-    version: 1.6.0
-    debug_modes:
-      - run
-      - suspend
-  php:
-    version: 5.3.[2-6]
-  erlangR14B02:
-    version: ".* 5.8.3"
-  python26:
-    version: 2.6.5
+    version: 0.6.7
 
 # Used for /healthz and /vars endpoints. If not provided random
 # values will be generated on component start. Uncomment to use

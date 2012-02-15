@@ -50,8 +50,8 @@ required = { :external_uri => 'api.vcap.me',
              :admins => [],
              :https_required => false,
              :https_required_for_admins => false,
-             :default_account_capacity => { :memory => 2048,
-                                            :app_uris => 4,
+             :default_account_capacity => { :memory => 4048,
+                                            :app_uris => 20,
                                             :services => 16,
                                             :apps => 20 } }
 

@@ -247,10 +247,9 @@ if [[ $DEA == true || $ALL == true ]]; then
     pushd .
     cd /tmp
 
-    NODE_VERSION=0.4.12
-
+    NODE_VERSION=0.6.7
     if [[ ! `node -v` == 'v'$NODE_VERSION ]]; then
-        wget http://nodejs.org/dist/node-v$NODE_VERSION.tar.gz
+        wget http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz
         tar -zxf node-v$NODE_VERSION.tar.gz
         cd node-v$NODE_VERSION
         ./configure
@@ -260,6 +259,7 @@ if [[ $DEA == true || $ALL == true ]]; then
         rm node-v$NODE_VERSION.tar.gz
         rm -fr node-v$NODE_VERSION
     fi
+
 
     # For PHP
     if [[ $PLATFORM == 'Linux' ]]; then
