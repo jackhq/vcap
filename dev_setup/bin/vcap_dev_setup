@@ -65,11 +65,11 @@ if [ -z "$CLOUDFOUNDRY_HOME" ]; then
 fi
 
 if [ -z "$CLOUDFOUNDRY_DOMAIN" ]; then
-  CLOUDFOUNDRY_DOMAIN=beautifulnode.com
+  CLOUDFOUNDRY_DOMAIN=vcap.me
 fi
 
 if [ -z "$VCAP_REPO" ]; then
-  VCAP_REPO=https://github.com/twilson63/vcap.git
+  VCAP_REPO=https://github.com/cloudfoundry/vcap.git
 fi
 
 if [ -z "$VCAP_REPO_BRANCH" ]; then
@@ -146,5 +146,4 @@ if [ -n "$CONFIG_FILE" ]; then
   ARGS="$ARGS -c $CONFIG_FILE"
 fi
 
-echo $ARGS
-#$CLOUDFOUNDRY_HOME/vcap/dev_setup/lib/chefsolo_launch.rb $ARGS
+$CLOUDFOUNDRY_HOME/vcap/dev_setup/lib/chefsolo_launch.rb $ARGS
