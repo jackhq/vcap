@@ -23,12 +23,13 @@ class NodePlugin < StagingPlugin
 
   # requires node and npm to be installed int the /usr/local/bin dir
   def startup_script
+    bin_path = File.dirname(runtime['executable'])
+    npm = "#{bin_path}/npm"
     vars = environment_hash
     generate_startup_script(vars) do
       cmd = <<NPM
-export PATH=$PATH:/usr/local/bin
 cd app
-/usr/local/bin/npm rebuild >> ../logs/npm.log 2>> ../logs/npm.log
+#{npm} rebuild >> ../logs/npm.log 2>> ../logs/npm.log
 cd ..
 
 NPM
