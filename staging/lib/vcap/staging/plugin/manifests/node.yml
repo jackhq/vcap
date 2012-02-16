@@ -2,7 +2,7 @@
 name: "node"
 runtimes:
   - node:
-      version: '0.4.12'
+      version: '0.6.7'
       description: 'Node.js'
       executable: node
       default: true
