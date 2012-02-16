@@ -24,14 +24,17 @@ class NodePlugin < StagingPlugin
   def startup_script
     vars = environment_hash
     generate_startup_script(vars) do
-     cmds = ['cd app && npm rebuild >>../logs/npm.log 2>> ../logs/npm.log && cd ..;']
-     cmds.join('\n')
+      plugin_specific_startup
     end
   end
 
   def stop_script
     vars = environment_hash
     generate_stop_script(vars)
+  end
+
+  def plugin_specific_startup
+    "cd app && npm rebuild >>../logs/npm.log 2>> ../logs/npm.log && cd ..;"
   end
 
   # TODO - I'm fairly sure this problem of 'no standard startup command' is
