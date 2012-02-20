@@ -65,11 +65,6 @@ module VCAP
       def start_http_server(host, port, auth)
         http_server = Thin::Server.new(host, port, :signals => false) do
           Thin::Logging.silent = true
-          if auth[1]
-            use Rack::Auth::Basic do |username, password|
-              [username, password] == auth
-            end
-          end
           map '/healthz' do
             run Healthz.new
           end
