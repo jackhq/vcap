@@ -6,3 +6,13 @@ mbus: nats://<%= node[:nats_server][:user] %>:<%= node[:nats_server][:password] 
 logging:
   level: info
 pid: /var/vcap/sys/run/router.pid
+
+<% if node[:router][:status_endpoint][:enabled] -%>
+# Used for /healthz and /vars endpoints. If not provided random
+# values will be generated on component start. Uncomment to use
+# static values.
+status:
+  port: <%= node[:router][:status_endpoint][:port] %>
+  user: <%= node[:router][:status_endpoint][:user] %>
+  password: <%= node[:router][:status_endpoint][:password] %>
+<% end -%>
